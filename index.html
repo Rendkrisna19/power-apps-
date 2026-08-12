@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Superstar - Unit IPUR</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts: Poppins -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    
+    <style>
+        body { font-family: 'Poppins', sans-serif; background-color: #040d1a; color: #f1f5f9; }
+        ::-webkit-scrollbar { display: none; }
+        .hide-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+        
+        /* Animasi Transisi Halus */
+        .fade-in { animation: fadeIn 0.3s ease-in-out; }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        /* Glassmorphism for Navy theme */
+        .glass-card {
+            background: linear-gradient(135deg, rgba(20, 40, 75, 0.8) 0%, rgba(10, 25, 50, 0.8) 100%);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(50, 100, 180, 0.3);
+            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
+        }
+    </style>
+</head>
+<body class="flex justify-center hide-scrollbar">
+
+    <!-- Mobile App Container -->
+    <div class="w-full max-w-[480px] bg-[#071324] min-h-screen relative flex flex-col shadow-2xl overflow-x-hidden border-x border-[#1a3055]">
+
+        <!-- ========================================== -->
+        <!-- HEADER SECTION (Logo & Title)              -->
+        <!-- ========================================== -->
+        <div class="pt-10 pb-8 px-6 text-center flex flex-col items-center bg-gradient-to-b from-[#0f2545] to-[#071324] relative">
+            <div class="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI4IiBoZWlnaHQ9IjgiPgo8cmVjdCB3aWR0aD0iOCIgaGVpZ2h0PSI4IiBmaWxsPSIjMDcxMzI0Ii8+CjxwYXRoIGQ9Ik0wIDBMOCA4Wk04IDBMMCA4WiIgc3Ryb2tlPSIjMGIxYzMyIiBzdHJva2Utd2lkdGg9IjEiLz4KPC9zdmc+')] opacity-20 pointer-events-none"></div>
+
+            <div class="w-full rounded-[24px] overflow-hidden bg-[#0d213f] border border-[#1e3a63] shadow-[0_15px_30px_rgba(0,0,0,0.5)] mb-6 relative z-10 p-2">
+                <img src="https://azeraf.id/client/superstar.png" alt="Superstar" class="w-full h-auto block relative z-10 rounded-[18px]" />
+                <div class="absolute top-0 left-0 right-0 h-[40%] bg-gradient-to-b from-white/10 to-transparent pointer-events-none z-20"></div>
+            </div>
+
+            <!-- 3D Title Pill -->
+            <div class="inline-flex items-center gap-2 bg-gradient-to-b from-[#1d4ed8] to-[#1e3a8a] text-white font-extrabold py-3 px-6 rounded-full text-[15px] tracking-[1.5px] shadow-[0_10px_20px_rgba(0,0,0,0.4),inset_0_2px_4px_rgba(255,255,255,0.2)] border border-[#3b82f6] uppercase z-10">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="text-blue-200"><path d="M3 3v18h18"/><path d="M18 17V9"/><path d="M13 17V5"/><path d="M8 17v-3"/></svg>
+                Infografis Unit IPUR
+            </div>
+        </div>
+
+        <!-- ========================================== -->
+        <!-- DASHBOARD VIEW (Grid & Cards Utama)        -->
+        <!-- ========================================== -->
+        <div id="view-dashboard" class="px-5 pb-10 flex flex-col gap-5 fade-in relative z-10">
+
+            <!-- 5 Menu Grid Atas (Buka Sub-Menu) -->
+            <div class="grid grid-cols-2 gap-4">
+                
+                <!-- 1. Layanan -->
+                <button onclick="openSubmenu('layanan')" class="glass-card rounded-3xl p-5 hover:-translate-y-1 transition-all flex flex-col items-center justify-center gap-4 group">
+                    <div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-[#1e40af] to-[#172554] text-[#60a5fa] flex items-center justify-center shadow-[inset_0_2px_5px_rgba(255,255,255,0.1)] border border-[#2563eb]/30 group-hover:shadow-[0_0_15px_rgba(59,130,246,0.5)] transition-all">
+                        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path></svg>
+                    </div>
+                    <span class="text-[12px] font-bold text-slate-200 text-center leading-tight">Seksi Layanan &<br>Non Bank</span>
+                </button>
+
+                <!-- 2. Pengolahan -->
+                <button onclick="openSubmenu('pengolahan')" class="glass-card rounded-3xl p-5 hover:-translate-y-1 transition-all flex flex-col items-center justify-center gap-4 group">
+                    <div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-[#1e40af] to-[#172554] text-[#a78bfa] flex items-center justify-center shadow-[inset_0_2px_5px_rgba(255,255,255,0.1)] border border-[#8b5cf6]/30 group-hover:shadow-[0_0_15px_rgba(139,92,246,0.5)] transition-all">
+                        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+                    </div>
+                    <span class="text-[12px] font-bold text-slate-200 text-center leading-tight">Seksi Pengolahan<br>& Pemusnahan</span>
+                </button>
+
+                <!-- 3. Sistem -->
+                <button onclick="openSubmenu('sistem')" class="glass-card rounded-3xl p-5 hover:-translate-y-1 transition-all flex flex-col items-center justify-center gap-4 group">
+                    <div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-[#1e40af] to-[#172554] text-[#2dd4bf] flex items-center justify-center shadow-[inset_0_2px_5px_rgba(255,255,255,0.1)] border border-[#14b8a6]/30 group-hover:shadow-[0_0_15px_rgba(20,184,166,0.5)] transition-all">
+                        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect><line x1="8" y1="21" x2="16" y2="21"></line><line x1="12" y1="17" x2="12" y2="21"></line></svg>
+                    </div>
+                    <span class="text-[12px] font-bold text-slate-200 text-center leading-tight">Aplikasi Bank<br>Indonesia</span>
+                </button>
+
+                <!-- 4. Edukasi -->
+                <button onclick="openSubmenu('edukasi')" class="glass-card rounded-3xl p-5 hover:-translate-y-1 transition-all flex flex-col items-center justify-center gap-4 group">
+                    <div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-[#1e40af] to-[#172554] text-[#fbbf24] flex items-center justify-center shadow-[inset_0_2px_5px_rgba(255,255,255,0.1)] border border-[#f59e0b]/30 group-hover:shadow-[0_0_15px_rgba(245,158,11,0.5)] transition-all">
+                        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path></svg>
+                    </div>
+                    <span class="text-[12px] font-bold text-slate-200 text-center leading-tight">Edukasi CBP<br>Rupiah</span>
+                </button>
+
+                <!-- 5. Tim (Span Full Width) -->
+                <button onclick="openSubmenu('tim')" class="col-span-2 glass-card rounded-3xl p-5 hover:-translate-y-1 transition-all flex items-center gap-5 group">
+                    <div class="w-16 h-16 rounded-2xl bg-gradient-to-br from-[#1e40af] to-[#172554] text-[#38bdf8] flex items-center justify-center shadow-[inset_0_2px_5px_rgba(255,255,255,0.1)] border border-[#0ea5e9]/30 shrink-0 group-hover:shadow-[0_0_15px_rgba(14,165,233,0.5)] transition-all">
+                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+                    </div>
+                    <div class="text-left flex-1">
+                        <span class="inline-block px-2.5 py-1 bg-[#1e3a8a]/50 text-[#93c5fd] text-[9px] font-bold rounded uppercase tracking-widest mb-1.5 border border-[#3b82f6]/30">INFORMASI TIM</span>
+                        <h2 class="text-slate-100 text-[16px] font-extrabold leading-tight">Data SDM IPUR</h2>
+                    </div>
+                    <div class="text-slate-500 group-hover:text-white transition-colors">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
+                    </div>
+                </button>
+
+            </div>
+
+            <!-- 6 & 7. Laporan & Realisasi (Kartu Bawah) -->
+            <div class="flex gap-4 w-full mt-2">
+                
+                <!-- Kartu Laporan -->
+                <a href="https://bankindonesiagov.sharepoint.com/:x:/r/sites/KPwBIPematangsiantar/Shared%20Documents/General/2026/UIPUR/SUPERSTAR/Rekapituliasi%20UPAL%202026.xls?d=w1b17ade8851d42c298c38b4ac30545a8&csf=1&web=1&e=0i2JvY" target="_blank" class="flex-1 flex flex-col justify-between bg-gradient-to-br from-[#1e3a8a] to-[#0f172a] rounded-[24px] p-5 text-white shadow-[0_10px_25px_rgba(0,0,0,0.5)] border border-[#3b82f6]/40 relative overflow-hidden active:scale-95 transition-transform hover:border-[#3b82f6] group">
+                    <div class="absolute top-0 right-0 -mr-4 -mt-4 w-24 h-24 bg-blue-500/20 rounded-full blur-2xl group-hover:bg-blue-500/30 transition-all"></div>
+                    <div class="w-10 h-10 rounded-xl bg-blue-600/30 border border-blue-400/30 flex items-center justify-center mb-4 backdrop-blur-sm relative z-10 text-blue-300">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>
+                    </div>
+                    <div class="relative z-10">
+                        <span class="text-blue-300 text-[9px] font-bold uppercase tracking-widest block mb-1">Laporan</span>
+                        <h3 class="text-[13px] font-extrabold leading-tight mb-4 drop-shadow-md text-white">Rekapitulasi Uang Palsu</h3>
+                        <span class="bg-blue-600/80 hover:bg-blue-500 text-white text-[10px] font-bold px-4 py-1.5 rounded-full shadow-md inline-block border border-blue-400/50 transition-colors">BUKA ❯</span>
+                    </div>
+                </a>
+
+                <!-- Kartu Realisasi -->
+                <a href="https://bankindonesiagov.sharepoint.com/:x:/r/sites/KPwBIPematangsiantar/_layouts/15/Doc.aspx?sourcedoc=%7B479BAC3E-9BDC-4670-8181-D77507BC6A87%7D&file=Tahun%20Anggaran%202026.xlsx&action=default&mobileredirect=true" target="_blank" class="flex-1 flex flex-col justify-between bg-gradient-to-br from-[#0f172a] to-[#1e3a8a] rounded-[24px] p-5 text-white shadow-[0_10px_25px_rgba(0,0,0,0.5)] border border-[#3b82f6]/40 relative overflow-hidden active:scale-95 transition-transform hover:border-[#3b82f6] group">
+                    <div class="absolute bottom-0 left-0 -ml-4 -mb-4 w-24 h-24 bg-cyan-500/20 rounded-full blur-2xl group-hover:bg-cyan-500/30 transition-all"></div>
+                    <div class="w-10 h-10 rounded-xl bg-cyan-600/30 border border-cyan-400/30 flex items-center justify-center mb-4 backdrop-blur-sm relative z-10 text-cyan-300">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="1" x2="12" y2="23"></line><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path></svg>
+                    </div>
+                    <div class="relative z-10">
+                        <span class="text-cyan-300 text-[9px] font-bold uppercase tracking-widest block mb-1">Realisasi</span>
+                        <h3 class="text-[13px] font-extrabold leading-tight mb-4 drop-shadow-md text-white">Anggaran IPUR 2026</h3>
+                        <span class="bg-cyan-600/80 hover:bg-cyan-500 text-white text-[10px] font-bold px-4 py-1.5 rounded-full shadow-md inline-block border border-cyan-400/50 transition-colors">BUKA ❯</span>
+                    </div>
+                </a>
+
+            </div>
+
+            <!-- Footer Tagline (Sesuai Referensi) -->
+            <div class="mt-4 bg-[#0d1f38] rounded-[24px] p-6 text-center border border-[#1e3a63] shadow-[0_10px_30px_rgba(0,0,0,0.4)] relative overflow-hidden">
+                <div class="absolute inset-0 bg-gradient-to-t from-[#1e3a8a]/10 to-transparent pointer-events-none"></div>
+                
+                <div class="flex items-center justify-center gap-2 font-extrabold text-[15px] text-white mb-4 drop-shadow-sm tracking-wide">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-blue-400"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+                    Pejuang Rupiah Pematangsiantar
+                </div>
+                
+                <div class="inline-block bg-gradient-to-r from-[#1d4ed8] to-[#2563eb] text-white py-1.5 px-6 rounded-full text-[11px] font-extrabold tracking-[2px] mb-5 shadow-[0_5px_15px_rgba(29,78,216,0.5)] border border-[#60a5fa]/50">
+                    #KOTA BERSIH
+                </div>
+                
+                <div class="text-[10px] text-slate-300 font-bold leading-relaxed bg-[#142845] p-3.5 rounded-xl shadow-inner border border-[#1e3a63]">
+                    <strong class="text-blue-400 font-black">KO</strong>mpak ·
+                    <strong class="text-blue-400 font-black">TA</strong>ngguh ·
+                    <strong class="text-blue-400 font-black">BER</strong>akhlak Mulia ·
+                    <strong class="text-blue-400 font-black">SI</strong>gap ·
+                    <strong class="text-blue-400 font-black">H</strong>andal
+                </div>
+            </div>
+
+        </div>
+
+        <!-- ========================================== -->
+        <!-- SUB-MENU VIEW (Tersembunyi Awalnya)        -->
+        <!-- ========================================== -->
+        <div id="view-submenu" class="hidden px-5 pb-24 fade-in">
+            <!-- Header Sub-Menu -->
+            <div class="flex items-center gap-4 mb-6 bg-[#0d1f38] p-5 rounded-[20px] shadow-lg border border-[#1e3a63]">
+                <div id="submenu-icon" class="w-14 h-14 rounded-2xl flex items-center justify-center border border-[#1e3a63]"></div>
+                <div>
+                    <span id="submenu-kategori" class="text-[10px] font-bold text-blue-400 uppercase tracking-widest block mb-1">Kategori</span>
+                    <h2 id="submenu-title" class="text-[16px] font-extrabold text-white leading-tight">Judul Menu</h2>
+                </div>
+            </div>
+
+            <!-- List Konten Sub-menu -->
+            <div id="submenu-list" class="flex flex-col gap-3">
+                <!-- Item disuntik via JS -->
+            </div>
+        </div>
+
+        <!-- ========================================== -->
+        <!-- FLOATING BACK BUTTON                       -->
+        <!-- ========================================== -->
+        <div id="btn-back-container" class="hidden fixed bottom-6 left-0 right-0 flex justify-center z-50 pointer-events-none fade-in">
+            <button onclick="closeSubmenu()" class="pointer-events-auto bg-gradient-to-r from-[#1e3a8a] to-[#0f172a] text-white px-8 py-3.5 rounded-full shadow-[0_10px_25px_rgba(0,0,0,0.6)] flex items-center gap-2 transition-transform active:scale-95 border border-[#3b82f6]/50">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
+                <span class="font-extrabold text-[13px] tracking-wide uppercase">Kembali</span>
+            </button>
+        </div>
+
+    </div>
+
+    <!-- Script Logika Menu -->
+    <script>
+        // Database Semua Menu & Link dari HTML asli (Konsep & Link TIDAK DIRUBAH)
+        const menuData = {
+            'layanan': {
+                kategori: 'Layanan',
+                title: 'Seksi Layanan & Non Bank',
+                icon: '<svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path></svg>',
+                iconBg: 'bg-gradient-to-br from-[#1e40af] to-[#172554] text-[#60a5fa]',
+                items: [
+                    { name: 'Penarikan dan Setoran Bank', url: 'https://bankindonesiagov.sharepoint.com/:x:/r/sites/KPwBIPematangsiantar/Shared%20Documents/General/2026/UIPUR/SUPERSTAR/DATABASE%20IPUR%20BULAN%20MEI%202026%20(Handoko).xlsx?d=w6ef91db1d5ef4176ab0e88feb56cfbb2&csf=1&web=1&e=ZwYaK4' },
+                    { name: 'Penarikan dan Setoran Non Bank', url: 'https://bankindonesiagov.sharepoint.com/:x:/r/sites/KPwBIPematangsiantar/Shared%20Documents/General/2026/UIPUR/SUPERSTAR/DATABASE%20IPUR%20BULAN%20MEI%202026%20(Handoko).xlsx?d=w6ef91db1d5ef4176ab0e88feb56cfbb2&csf=1&web=1&e=ZwYaK4' },
+                    { name: 'Kas Titipan', url: 'https://bankindonesiagov.sharepoint.com/:x:/r/sites/KPwBIPematangsiantar/Shared%20Documents/General/2026/UIPUR/SUPERSTAR/DATABASE%20IPUR%20BULAN%20MEI%202026%20(Handoko).xlsx?d=w6ef91db1d5ef4176ab0e88feb56cfbb2&csf=1&web=1&e=ZwYaK4' },
+                    { name: 'Kas Keliling', url: 'https://bankindonesiagov.sharepoint.com/:x:/r/sites/KPwBIPematangsiantar/Shared%20Documents/General/2026/UIPUR/SUPERSTAR/DATABASE%20IPUR%20BULAN%20MEI%202026%20(Handoko).xlsx?d=w6ef91db1d5ef4176ab0e88feb56cfbb2&csf=1&web=1&e=ZwYaK4' },
+                    { name: 'Penukaran', url: 'https://bankindonesiagov.sharepoint.com/:x:/r/sites/KPwBIPematangsiantar/Shared%20Documents/General/2026/UIPUR/SUPERSTAR/DATABASE%20IPUR%20BULAN%20MEI%202026%20(Handoko).xlsx?d=w6ef91db1d5ef4176ab0e88feb56cfbb2&csf=1&web=1&e=ZwYaK4' }
+                ]
+            },
+            'pengolahan': {
+                kategori: 'Pengolahan',
+                title: 'Seksi Pengolahan & Pemusnahan',
+                icon: '<svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>',
+                iconBg: 'bg-gradient-to-br from-[#1e40af] to-[#172554] text-[#a78bfa]',
+                items: [
+                    { name: 'MSUK', url: 'https://bankindonesiagov.sharepoint.com/:x:/r/sites/KPwBIPematangsiantar/Shared%20Documents/General/2026/UIPUR/SUPERSTAR/DATABASE%20IPUR%20BULAN%20MEI%202026%20(Handoko).xlsx?d=w6ef91db1d5ef4176ab0e88feb56cfbb2&csf=1&web=1&e=ZwYaK4' },
+                    { name: 'MRUK', url: 'https://bankindonesiagov.sharepoint.com/:x:/r/sites/KPwBIPematangsiantar/Shared%20Documents/General/2026/UIPUR/SUPERSTAR/DATABASE%20IPUR%20BULAN%20MEI%202026%20(Handoko).xlsx?d=w6ef91db1d5ef4176ab0e88feb56cfbb2&csf=1&web=1&e=ZwYaK4' },
+                    { name: 'S-HUM', url: 'https://bankindonesiagov.sharepoint.com/:x:/r/sites/KPwBIPematangsiantar/Shared%20Documents/General/2026/UIPUR/SUPERSTAR/DATABASE%20IPUR%20BULAN%20MEI%202026%20(Handoko).xlsx?d=w6ef91db1d5ef4176ab0e88feb56cfbb2&csf=1&web=1&e=ZwYaK4' },
+                    { name: 'Penatausahaan Selisih', url: 'https://bankindonesiagov.sharepoint.com/:x:/r/sites/KPwBIPematangsiantar/Shared%20Documents/General/2026/UIPUR/SUPERSTAR/DATABASE%20IPUR%20BULAN%20MEI%202026%20(Handoko).xlsx?d=w6ef91db1d5ef4176ab0e88feb56cfbb2&csf=1&web=1&e=ZwYaK4' },
+                    { name: 'Daftar Catatan Kas (DCK)', url: '#' }
+                ]
+            },
+            'sistem': {
+                kategori: 'Sistem',
+                title: 'Aplikasi Bank Indonesia',
+                icon: '<svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect><line x1="8" y1="21" x2="16" y2="21"></line><line x1="12" y1="17" x2="12" y2="21"></line></svg>',
+                iconBg: 'bg-gradient-to-br from-[#1e40af] to-[#172554] text-[#2dd4bf]',
+                items: [
+                    { name: 'Core Banking', url: 'https://cbs.corp.bi.go.id/Intellect/login.faces' },
+                    { name: 'BISILK', url: 'https://bisilk.corp.bi.go.id/' },
+                    { name: 'BI-CAC', url: 'http://bicac/login/internal' },
+                    { name: 'Si Monika', url: 'https://login.fleetsight.co.id/' },
+                    { name: 'PINTAR', url: 'https://pintar.bi.go.id/Account/login' },
+                    { name: 'Edw-BI', url: 'https://edwbi-new/ibmcognos/bi/' }
+                ]
+            },
+            'edukasi': {
+                kategori: 'Sosialisasi',
+                title: 'Edukasi CBP Rupiah',
+                icon: '<svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path></svg>',
+                iconBg: 'bg-gradient-to-br from-[#1e40af] to-[#172554] text-[#fbbf24]',
+                items: [
+                    { name: 'Rencana, Laporan Kegiatan, Publikasi & Penggunaan Anggaran DPU', url: 'https://bankindonesiagov-my.sharepoint.com/:f:/g/personal/mrivandi_tsani_bi_go_id/IgBySP7ZTX8dRK-GcNmFFP_xAbnh4xJIxHGQn6iuwkI6eBQ?e=plFuH5' },
+                    { name: 'Dokumentasi Kegiatan CBP', url: 'https://bankindonesiagov-my.sharepoint.com/:f:/g/personal/mrivandi_tsani_bi_go_id/IgBySP7ZTX8dRK-GcNmFFP_xAbnh4xJIxHGQn6iuwkI6eBQ?e=plFuH5' },
+                    { name: 'Portal AKUR', url: 'https://agent.jotform.com/019e017e3cf776c4a63399414b6707060cc3' }
+                ]
+            },
+            'tim': {
+                kategori: 'Tim',
+                title: 'Data SDM IPUR',
+                icon: '<svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>',
+                iconBg: 'bg-gradient-to-br from-[#1e40af] to-[#172554] text-[#38bdf8]',
+                items: [
+                    { name: 'Lihat Data SDM IPUR (Gambar)', url: 'https://bankindonesiagov.sharepoint.com/:i:/r/sites/KPwBIPematangsiantar/Shared%20Documents/General/2026/UIPUR/SUPERSTAR/Data%20SDM%20IPUR.png?csf=1&web=1&e=gTkaMU' }
+                ]
+            }
+        };
+
+        const viewDashboard = document.getElementById('view-dashboard');
+        const viewSubmenu = document.getElementById('view-submenu');
+        const btnBackContainer = document.getElementById('btn-back-container');
+        const submenuTitle = document.getElementById('submenu-title');
+        const submenuKategori = document.getElementById('submenu-kategori');
+        const submenuIcon = document.getElementById('submenu-icon');
+        const submenuList = document.getElementById('submenu-list');
+
+        function openSubmenu(menuKey) {
+            const data = menuData[menuKey];
+            
+            // Set Konten Header Submenu
+            submenuTitle.innerText = data.title;
+            submenuKategori.innerText = data.kategori;
+            submenuIcon.innerHTML = data.icon;
+            submenuIcon.className = `w-14 h-14 rounded-2xl flex items-center justify-center shadow-inner ${data.iconBg}`;
+            
+            // Render Daftar Link Submenu
+            submenuList.innerHTML = '';
+            data.items.forEach(item => {
+                submenuList.innerHTML += `
+                    <a href="${item.url}" target="_blank" class="bg-[#142845] p-4 rounded-[16px] shadow-sm border border-[#1e3a63] flex items-center justify-between hover:bg-[#1e3a8a]/40 hover:border-blue-500/50 transition-all group">
+                        <div class="flex items-center gap-4 w-5/6">
+                            <div class="w-9 h-9 rounded-full bg-[#1e3a8a]/50 group-hover:bg-blue-600 text-blue-400 group-hover:text-white flex items-center justify-center transition-colors shrink-0 border border-blue-500/30">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"></path><path d="M12 5l7 7-7 7"></path></svg>
+                            </div>
+                            <span class="text-[13px] font-bold text-slate-200 leading-snug group-hover:text-white transition-colors">${item.name}</span>
+                        </div>
+                    </a>
+                `;
+            });
+
+            // Tampilkan Submenu, Sembunyikan Dashboard Utama
+            viewDashboard.classList.add('hidden');
+            viewSubmenu.classList.remove('hidden');
+            btnBackContainer.classList.remove('hidden');
+            btnBackContainer.classList.add('flex');
+            
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        function closeSubmenu() {
+            viewSubmenu.classList.add('hidden');
+            btnBackContainer.classList.add('hidden');
+            btnBackContainer.classList.remove('flex');
+            viewDashboard.classList.remove('hidden');
+        }
+    </script>
+
+</body>
+</html>
